@@ -13,80 +13,45 @@
     <link href="{{ asset('css/AdminLTE.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/skin-blue.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.dataTables.min.css') }}" rel="stylesheet">
+    <style>
+        .content-wrapper, .right-side {
+            background-color: #fff;
+        }
+        .addButton{
+            margin: 0 4px 9px 40px;
+        }
+        .addButton span {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body class="skin-blue sidebar-mini">
-<div class="wrapper">
-
-    @include('includes.header')
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-     <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i> <span>User</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-  @yield('content')
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.11
+    <div class="wrapper">
+        <!-- include header -->
+        @include('includes.header')
+        <!-- Left side column. contains the logo and sidebar -->
+        @include('includes.sidebar')
+        
+        @yield('content')
+        <div class="control-sidebar-bg"></div>
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
-
-          <!--<div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>-->
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- jQuery 2.2.3 -->
+    <!-- jQuery 2.2.3 -->
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap 3.3.6 -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/adminApp.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.responsive.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").slideUp(500);
+            });
+        });
+    </script>
+     @stack('scripts')
 </body>
 </html>
