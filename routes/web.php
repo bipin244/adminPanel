@@ -19,6 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/user', 'UserController');
+    Route::resource('/account', 'AccountController');
     Route::get('/user/{id}/delete', 'UserController@delete');
 });
 Auth::routes();

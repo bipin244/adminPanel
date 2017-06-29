@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\User;
+use App\UserLog;
 use Illuminate\Support\Facades\Hash;
 use Yajra\Datatables\Datatables;
 use Session;
@@ -62,6 +63,10 @@ class UserController extends Controller
         $data['phone'] = $inputs['phone'];
         $data['password'] = Hash::make($inputs['password']);
         if ($data->save()) {
+            $userLog = new UserLog();
+            $userLog->user_id = $data->id;
+            $userLog->action = 'Create';
+            $userLog->save();
             Session::flash('message', 'User Created Successfully');
             return redirect("user");
         }
@@ -116,6 +121,10 @@ class UserController extends Controller
         $inputs['phone'] = $inputs['phone'];
         // $inputs['updated_at'] = date('Y-m-d H:i:s');
         if ($data->update($inputs)) {
+            $userLog = new UserLog();
+            $userLog->user_id = $id;
+            $userLog->action = 'Update';
+            $userLog->save();
             Session::flash('message', 'User Updated Successfully');
             return redirect("user");
         }
