@@ -4,15 +4,15 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Create User</div>
+                <div class="panel-heading">Create Account</div>
                 <div class="panel-body">
-                    {!! Form::open(array("method"=>"POST",'action' => 'UserController@store')) !!} 
-                        @include('user/_form')
+                    {!! Form::open(array("method"=>"POST",'action' => 'AccountController@store')) !!} 
+                        @include('account/_form')
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-save"></i> Create
                             </button>
-                            <a href="{{ url('user') }}" class="btn btn-primary">
+                            <a href="{{ url('account') }}" class="btn btn-primary">
                                 <i class="fa fa-btn fa-undo"></i> Cancel
                             </a>
                         </div>

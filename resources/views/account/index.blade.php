@@ -26,6 +26,7 @@
                 <th>Created At</th>
                 <th>Modifier Name</th>
                 <th>Modified At</th>
+                <th>Action</th>
             </tr>
         </thead>
     </table>
@@ -55,13 +56,11 @@ $(function() {
         },
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'first_name', name: 'first_name' },
-            { data: 'last_name', name: 'last_name' },
-            { data: 'email', name: 'email' },
-            { data: 'title', name: 'title' },
-            { data: 'phone', name: 'phone' },
-            { data: 'active', name: 'active' },
+            { data: 'name', name: 'name' },
+            { data: 'createrName', name: 'createrName' },
             { data: 'created_at', name: 'created_at' },
+            { data: 'modifierName', name: 'modifierName' },
+            { data: 'updated_at', name: 'updated_at' },
             { data: 'action', name: 'action' }
         ]
     });

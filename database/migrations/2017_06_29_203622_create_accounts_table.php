@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('created_id');
-            $table->integer('modified_id');
+            $table->integer('modified_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

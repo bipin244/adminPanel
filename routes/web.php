@@ -21,5 +21,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/user', 'UserController');
     Route::resource('/account', 'AccountController');
     Route::get('/user/{id}/delete', 'UserController@delete');
+    Route::get('/account/{id}/delete', 'AccountController@delete');
 });
 Auth::routes();
