@@ -47,6 +47,9 @@ $(function() {
         "ordering": true,
         "info": true,
         "autoWidth": false,
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ],
         ajax: {
             url: '{{ route('account.index') }}',
             type: "get",
