@@ -16,6 +16,21 @@
                     <i class="fa fa-university"></i> <span>Account</span>
                 </a>
             </li>
+            <li class="@if (Request::is('contacts')) {{'active'}} @endif treeview">
+                <a href="{{ url('contacts') }}">
+                    <i class="fa fa-address-book-o"></i> <span>Contacts</span>
+                </a>
+            </li>
+            <li class="@if (Request::is('vendors')) {{'active'}} @endif treeview">
+                <a href="{{ url('vendors') }}">
+                    <i class="fa fa-user-circle"></i> <span>Vendors</span>
+                </a>
+            </li> 
+            <li class="@if (Request::is('parts')) {{'active'}} @endif treeview">
+                <a href="{{ url('parts') }}">
+                    <i class="fa fa-wrench"></i> <span>Parts</span>
+                </a>
+            </li> 
         </ul>
     </section>
   </aside>
