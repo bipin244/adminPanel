@@ -9,11 +9,21 @@
                 <label for="avg_price">Average Price <span class="warning">*</span></label>
                 {!! Form::number('avg_price', isset($data) ? $data['avg_price'] : '', array('class' => 'form-control', 'id' => 'avg_price', 'placeholder' => 'Average Price','step'=>'0.01' ,'required' => 'required')) !!}
             </div>
+           
+            <div class="form-group {{ $errors->has('vendors') ? ' has-error' : '' }}">
+                <label for="vendors">Vendor <span class="warning">*</span></label>
+                <select class="form-control" name="vendors[]" multiple>
+                    @foreach ($vendors as $key => $vendor)
+                        <option value="{{$key}}" @if(isset($data)) @if (in_array($key,$data['vendors'])) selected @endif @endif>{{ $vendor }}</option>
+                    @endforeach
+                </select>
+                <!--{!! Form::select('vendors[]', $vendors, isset($data) ? [4] : null, ['multiple' => true, 'class' => 'form-control']) !!}-->
+            </div>
         </div>
         <div class="col-md-6">
             <div class="form-group {{ $errors->has('sku') ? ' has-error' : '' }}">
                 <label for="sku">Sku <span class="warning">*</span></label>
-                {!! Form::number('sku', isset($data) ? $data['sku'] : '', array('class' => 'form-control', 'id' => 'sku', 'placeholder' => 'Sku' ,'required' => 'required')) !!}
+                {!! Form::number('sku', isset($data) ? $data['sku'] : '', array('class' => 'form-control', 'id' => 'sku', 'placeholder' => 'Sku' ,'step'=>'1','min'=>'0' ,'required' => 'required')) !!}
             </div>
             <div class="form-group {{ $errors->has('last_name') ? ' has-error' : '' }}">
                 <label for="last_name">Description <span class="warning">*</span></label>

@@ -18,7 +18,7 @@ class CreatePartsToVendorTable extends Migration
             $table->increments('id');
             $table->string('part_id')->nullable();
             $table->string('vendor_id')->nullable();
-            $table->decimal('vendor_last_price', 12, 2);
+            $table->decimal('vendor_last_price', 12, 2)->nullable();
             $table->timestamp('vendor_last_price_date');
             $table->timestamps();
         });
